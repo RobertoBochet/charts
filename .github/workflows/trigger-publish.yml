@@ -1,0 +1,17 @@
+on:
+  push:
+    branches:
+      - charts
+
+jobs:
+  trigger-publish:
+    name: "Trigger publish"
+    permissions:
+      actions: write
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          gh workflow run publish.yml
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
