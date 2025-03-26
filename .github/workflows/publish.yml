@@ -29,7 +29,7 @@ jobs:
         run: |
           helm repo index ./_site
       - name: "Generate human readable index"
-        uses: jaywcjlove/markdown-to-html-cli@v5
+        uses: jaywcjlove/markdown-to-html-cli@v5.0.3
         with:
           source: "./main/README.md"
           output: "./_site/index.html"
